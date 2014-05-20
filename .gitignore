@@ -17,6 +17,7 @@ local.properties
 .loadpath
 .svn/
 
+.Po
 # External tool builders
 .externalToolBuilders/
 
@@ -218,3 +219,5 @@ pip-log.txt
 ## boost
 #############
 boost/
+
+src/.deps/

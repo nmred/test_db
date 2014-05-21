@@ -18,6 +18,7 @@ local.properties
 .svn/
 
 .Po
+.o
 # External tool builders
 .externalToolBuilders/
 

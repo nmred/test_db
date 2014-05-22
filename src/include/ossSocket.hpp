@@ -96,3 +96,4 @@ public :
 typedef class _ossSocket ossSocket ;
 
 #endif
+

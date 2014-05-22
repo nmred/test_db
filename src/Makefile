@@ -60,12 +60,12 @@ edb_OBJECTS = $(am_edb_OBJECTS)
 edb_DEPENDENCIES =
 am_emeralddb_OBJECTS = emeralddb-ossSocket.$(OBJEXT) \
 	emeralddb-ossPrimitiveFileOp.$(OBJEXT) \
-	emeralddb-pmdTcpListener.$(OBJEXT) emeralddb-bsonobj.$(OBJEXT) \
-	emeralddb-json.$(OBJEXT) emeralddb-oid.$(OBJEXT) \
-	emeralddb-base64.$(OBJEXT) emeralddb-md5.$(OBJEXT) \
-	emeralddb-nonce.$(OBJEXT) emeralddb-pd.$(OBJEXT) \
-	emeralddb-pmdOptions.$(OBJEXT) emeralddb-pmd.$(OBJEXT) \
-	emeralddb-pmdMain.$(OBJEXT)
+	emeralddb-pmdEDU.$(OBJEXT) emeralddb-pmdTcpListener.$(OBJEXT) \
+	emeralddb-bsonobj.$(OBJEXT) emeralddb-json.$(OBJEXT) \
+	emeralddb-oid.$(OBJEXT) emeralddb-base64.$(OBJEXT) \
+	emeralddb-md5.$(OBJEXT) emeralddb-nonce.$(OBJEXT) \
+	emeralddb-pd.$(OBJEXT) emeralddb-pmdOptions.$(OBJEXT) \
+	emeralddb-pmd.$(OBJEXT) emeralddb-pmdMain.$(OBJEXT)
 emeralddb_OBJECTS = $(am_emeralddb_OBJECTS)
 emeralddb_DEPENDENCIES =
 am_hello_OBJECTS = hello-bsonobj.$(OBJEXT) hello-json.$(OBJEXT) \
@@ -178,6 +178,7 @@ AUTOMAKE_OPTIONS = foreign
 emeralddb_SOURCES = \
    oss/ossSocket.cpp \
    oss/ossPrimitiveFileOp.cpp \
+   pmd/pmdEDU.cpp \
    pmd/pmdTcpListener.cpp \
    bson/src/bsonobj.cpp bson/src/util/json.cpp bson/src/oid.cpp \
    bson/src/lib/base64.cpp bson/src/lib/md5.cpp bson/src/lib/nonce.cpp \
@@ -322,6 +323,7 @@ include ./$(DEPDIR)/emeralddb-ossPrimitiveFileOp.Po
 include ./$(DEPDIR)/emeralddb-ossSocket.Po
 include ./$(DEPDIR)/emeralddb-pd.Po
 include ./$(DEPDIR)/emeralddb-pmd.Po
+include ./$(DEPDIR)/emeralddb-pmdEDU.Po
 include ./$(DEPDIR)/emeralddb-pmdMain.Po
 include ./$(DEPDIR)/emeralddb-pmdOptions.Po
 include ./$(DEPDIR)/emeralddb-pmdTcpListener.Po
@@ -530,6 +532,20 @@ emeralddb-ossPrimitiveFileOp.obj: oss/ossPrimitiveFileOp.cpp
 #	source='oss/ossPrimitiveFileOp.cpp' object='emeralddb-ossPrimitiveFileOp.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -c -o emeralddb-ossPrimitiveFileOp.obj `if test -f 'oss/ossPrimitiveFileOp.cpp'; then $(CYGPATH_W) 'oss/ossPrimitiveFileOp.cpp'; else $(CYGPATH_W) '$(srcdir)/oss/ossPrimitiveFileOp.cpp'; fi`
+
+emeralddb-pmdEDU.o: pmd/pmdEDU.cpp
+	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -MT emeralddb-pmdEDU.o -MD -MP -MF "$(DEPDIR)/emeralddb-pmdEDU.Tpo" -c -o emeralddb-pmdEDU.o `test -f 'pmd/pmdEDU.cpp' || echo '$(srcdir)/'`pmd/pmdEDU.cpp; \
+	then mv -f "$(DEPDIR)/emeralddb-pmdEDU.Tpo" "$(DEPDIR)/emeralddb-pmdEDU.Po"; else rm -f "$(DEPDIR)/emeralddb-pmdEDU.Tpo"; exit 1; fi
+#	source='pmd/pmdEDU.cpp' object='emeralddb-pmdEDU.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -c -o emeralddb-pmdEDU.o `test -f 'pmd/pmdEDU.cpp' || echo '$(srcdir)/'`pmd/pmdEDU.cpp
+
+emeralddb-pmdEDU.obj: pmd/pmdEDU.cpp
+	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -MT emeralddb-pmdEDU.obj -MD -MP -MF "$(DEPDIR)/emeralddb-pmdEDU.Tpo" -c -o emeralddb-pmdEDU.obj `if test -f 'pmd/pmdEDU.cpp'; then $(CYGPATH_W) 'pmd/pmdEDU.cpp'; else $(CYGPATH_W) '$(srcdir)/pmd/pmdEDU.cpp'; fi`; \
+	then mv -f "$(DEPDIR)/emeralddb-pmdEDU.Tpo" "$(DEPDIR)/emeralddb-pmdEDU.Po"; else rm -f "$(DEPDIR)/emeralddb-pmdEDU.Tpo"; exit 1; fi
+#	source='pmd/pmdEDU.cpp' object='emeralddb-pmdEDU.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -c -o emeralddb-pmdEDU.obj `if test -f 'pmd/pmdEDU.cpp'; then $(CYGPATH_W) 'pmd/pmdEDU.cpp'; else $(CYGPATH_W) '$(srcdir)/pmd/pmdEDU.cpp'; fi`
 
 emeralddb-pmdTcpListener.o: pmd/pmdTcpListener.cpp
 	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emeralddb_CXXFLAGS) $(CXXFLAGS) -MT emeralddb-pmdTcpListener.o -MD -MP -MF "$(DEPDIR)/emeralddb-pmdTcpListener.Tpo" -c -o emeralddb-pmdTcpListener.o `test -f 'pmd/pmdTcpListener.cpp' || echo '$(srcdir)/'`pmd/pmdTcpListener.cpp; \

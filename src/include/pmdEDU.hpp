@@ -1,4 +1,4 @@
-#ifdef PMDEDU_HPP__
+#ifndef PMDEDU_HPP__
 #define PMDEDU_HPP__
 
 #include "core.hpp"
@@ -66,7 +66,7 @@ class pmdEDUCB
 			}
 
 			if (waitMsg) {
-				if (data._eventTyp == PMD_EDU_EVENT_TERM) {
+				if (data._eventType == PMD_EDU_EVENT_TERM) {
 					_isDisconnected = true;	
 				} else {
 					_status = PMD_EDU_RUNNING;	

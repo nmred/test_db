@@ -3,6 +3,7 @@ bin_PROGRAMS=emeralddb edb hello
 emeralddb_SOURCES=\
    oss/ossSocket.cpp \
    oss/ossPrimitiveFileOp.cpp \
+   pmd/pmdEDU.cpp \
    pmd/pmdTcpListener.cpp \
    bson/src/bsonobj.cpp bson/src/util/json.cpp bson/src/oid.cpp \
    bson/src/lib/base64.cpp bson/src/lib/md5.cpp bson/src/lib/nonce.cpp \

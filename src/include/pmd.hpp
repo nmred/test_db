@@ -2,6 +2,7 @@
 #define PMD_HPP__
 
 #include "core.hpp"
+#include "pmdEDUMgr.hpp"
 
 enum EDB_DB_STATUS
 {
@@ -25,6 +26,7 @@ class EDB_KRCB
 		int _maxPool;
 		char _svcName[NI_MAXSERV + 1];
 		EDB_DB_STATUS _dbStatus;
+		pmdEDUMgr	_eduMgr;
 	public:
 		EDB_KRCB()
 		{
@@ -35,6 +37,11 @@ class EDB_KRCB
 			memset(_svcName, 0, sizeof(_svcName));	
 		}		
 		~EDB_KRCB() {}
+
+		pmdEDUMgr* getEDUMgr()
+		{
+			return &_eduMgr;	
+		}
 
 		inline EDB_DB_STATUS getDBStatus()
 		{

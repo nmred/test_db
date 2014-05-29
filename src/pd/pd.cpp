@@ -1,3 +1,10 @@
+/**
+* @file pd.cpp
+* @brief	日志写入
+* @author nmred <nmred_2008@126.com>
+* @version 1.0
+* @date 2014-05-27
+*/
 #include "core.hpp"
 #include "pd.hpp"
 #include "ossLatch.hpp"
@@ -13,15 +20,6 @@ const static char *PDLEVELSTRING[] =
 	"DEBUG"	
 };
 
-const char *getPDLevelDesp(PDLEVEL level)
-{
-	if ((unsigned int)level > (unsigned int)PDDEBUG) {
-		return "Unknow Level";	
-	}	
-
-	return PDLEVELSTRING[(unsigned int)level];
-}
-
 const static char *PD_LOG_HEADER_FORMAT = "%04d-%02d-%02d-%02d.%02d.%02d.%06d\
 					\
 Level:%s"OSS_NEWLINE"PID:%-37dTID:%d"OSS_NEWLINE"Function:%-32sLine:%d"\
@@ -33,8 +31,32 @@ char _pdDiagLogPath[OSS_MAX_PATHSIZE + 1] = {0};
 ossXLatch _pdLogMutex;
 ossPrimitiveFileOp _pdLogFile;
 
-// {{{ _pdLogFileReopen()
+// {{{ const char *getPDLevelDesp()
 
+/**
+* @brief	获取对应日志等级的描述信息 
+*
+* @param	level
+*
+* @return   char * 日志描述信息	
+*/
+const char *getPDLevelDesp(PDLEVEL level)
+{
+	if ((unsigned int)level > (unsigned int)PDDEBUG) {
+		return "Unknow Level";	
+	}	
+
+	return PDLEVELSTRING[(unsigned int)level];
+}
+
+// }}}
+// {{{ static int _pdLogFileReopen()
+
+/**
+* @brief	打开日志文件句柄 
+*
+* @return	int	
+*/
 static int _pdLogFileReopen()
 {
 	int rc = EDB_OK;
@@ -53,8 +75,15 @@ error:
 }
 
 // }}}
-// {{{ _pdLogFileWrite()
+// {{{ static int _pdLogFileWrite()
 
+/**
+* @brief	写入日志文件 
+*
+* @param	const char *pData
+*
+* @return	int rc	
+*/
 static int _pdLogFileWrite(const char *pData)
 {
 	int rc = EDB_OK;
@@ -84,6 +113,16 @@ error:
 // }}}
 // {{{ pdLog()
 
+/**
+* @brief	记录日志 
+*
+* @param	level	日志级别
+* @param	func	函数名
+* @param	file	文件名
+* @param	line	文件行数
+* @param	format	格式化字符串方法
+* @param	...
+*/
 void pdLog(PDLEVEL level, const char *func, const char *file, unsigned int line, const char *format, ...)
 {
 	int rc = EDB_OK;

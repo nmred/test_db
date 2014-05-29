@@ -108,15 +108,10 @@ edb-edb.o edb-edb.o: client/edb.cpp \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/istream.tcc \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/sstream \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/sstream.tcc \
-  client/edb.hpp \
-  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/vector \
-  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h \
-  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h \
-  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc \
-  include/ossSocket.hpp include/core.hpp /usr/include/sys/time.h \
-  /usr/include/syscall.h /usr/include/sys/syscall.h \
-  /usr/include/asm/unistd.h /usr/include/bits/syscall.h \
-  /usr/include/fcntl.h /usr/include/bits/fcntl.h /usr/include/bits/uio.h \
+  include/core.hpp /usr/include/sys/time.h /usr/include/syscall.h \
+  /usr/include/sys/syscall.h /usr/include/asm/unistd.h \
+  /usr/include/bits/syscall.h /usr/include/fcntl.h \
+  /usr/include/bits/fcntl.h /usr/include/bits/uio.h \
   /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/errno.h \
   /usr/include/bits/errno.h /usr/include/linux/errno.h \
   /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
@@ -139,6 +134,11 @@ edb-edb.o edb-edb.o: client/edb.cpp \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/set \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_set.h \
   /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_multiset.h \
+  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/vector \
+  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h \
+  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h \
+  /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc \
+  client/edb.hpp include/ossSocket.hpp include/core.hpp \
   client/commandFactory.hpp client/command.hpp bson/src/util/json.h \
   bson/src/util/../bson.h bson/src/util/../bsonassert.h \
   ../boost/boost/utility.hpp ../boost/boost/utility/addressof.hpp \
@@ -786,7 +786,7 @@ edb-edb.o edb-edb.o: client/edb.cpp \
   ../boost/boost/thread/thread_time.hpp \
   ../boost/boost/date_time/microsec_time_clock.hpp \
   ../boost/boost/config/abi_prefix.hpp \
-  ../boost/boost/config/abi_suffix.hpp include/core.hpp
+  ../boost/boost/config/abi_suffix.hpp
 
 /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/iostream:
 
@@ -1060,18 +1060,6 @@ edb-edb.o edb-edb.o: client/edb.cpp \
 
 /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/sstream.tcc:
 
-client/edb.hpp:
-
-/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/vector:
-
-/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h:
-
-/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h:
-
-/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc:
-
-include/ossSocket.hpp:
-
 include/core.hpp:
 
 /usr/include/sys/time.h:
@@ -1167,6 +1155,20 @@ include/core.hpp:
 /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_set.h:
 
 /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_multiset.h:
+
+/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/vector:
+
+/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h:
+
+/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h:
+
+/usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc:
+
+client/edb.hpp:
+
+include/ossSocket.hpp:
+
+include/core.hpp:
 
 client/commandFactory.hpp:
 
@@ -2665,5 +2667,3 @@ bson/src/util/../util/time_support.h:
 ../boost/boost/config/abi_prefix.hpp:
 
 ../boost/boost/config/abi_suffix.hpp:
-
-include/core.hpp:

@@ -4,9 +4,12 @@ emeralddb_SOURCES=\
    oss/ossSocket.cpp \
    oss/ossPrimitiveFileOp.cpp \
    pmd/pmdEDU.cpp \
+   pmd/pmdEDUMgr.cpp \
+   pmd/pmdAgent.cpp \
    pmd/pmdTcpListener.cpp \
    bson/src/bsonobj.cpp bson/src/util/json.cpp bson/src/oid.cpp \
    bson/src/lib/base64.cpp bson/src/lib/md5.cpp bson/src/lib/nonce.cpp \
+   msg/msg.cpp \
    pd/pd.cpp pmd/pmdOptions.cpp pmd/pmd.cpp \
    pmd/pmdMain.cpp
 
@@ -15,7 +18,9 @@ edb_SOURCES=\
    bson/src/bsonobj.cpp bson/src/util/json.cpp bson/src/oid.cpp \
    bson/src/lib/base64.cpp bson/src/lib/md5.cpp bson/src/lib/nonce.cpp \
    oss/ossSocket.cpp \
-   oss/ossPrimitiveFileOp.cpp
+   oss/ossPrimitiveFileOp.cpp \
+   msg/msg.cpp \
+   pd/pd.cpp 
 
 hello_SOURCES=\
    bson/src/bsonobj.cpp bson/src/util/json.cpp bson/src/oid.cpp \

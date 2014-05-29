@@ -55,11 +55,11 @@ bool isSystemEDU(EDU_TYPES type)
 
 pmdEDUCB::pmdEDUCB(pmdEDUMgr *mgr, EDU_TYPES type):
 _type(type),
-_mgr(mgr),
 _status(PMD_EDU_CREATING),
+_mgr(mgr),
 _id(0),
-_isForced(false),
-_isDisconnected(false)
+_isDisconnected(false),
+_isForced(false)
 {
 	
 }
@@ -82,7 +82,7 @@ pmdEntryPoint getEntryFuncByType(EDU_TYPES type)
 {
 	pmdEntryPoint rt = NULL;
 	static const _eduEntryInfo entry[] = {
-	//	ON_EDUTYPE_TO_ENTRY(EDU_TYPE_AGENT, false, pmdAgentEntryPoint, "Agent"),	
+		ON_EDUTYPE_TO_ENTRY(EDU_TYPE_AGENT, false, pmdAgentEntryPoint, "Agent"),	
 		ON_EDUTYPE_TO_ENTRY(EDU_TYPE_TCPLISTENER, false, pmdTcpListenerEntryPoint, "TCPListener"),
 		ON_EDUTYPE_TO_ENTRY(EDU_TYPE_MAXIMUM, false, NULL, "Unkonwn")
 	};
@@ -155,7 +155,6 @@ done:
 int pmdEDUEntryPoint(EDU_TYPES type, pmdEDUCB *cb, void *arg)
 {
 	int rc = EDB_OK;
-	EDB_KRCB *krcb = pmdGetKRCB();
 	EDUID myEDUID = cb->getID();
 	pmdEDUMgr *eduMgr = cb->getEDUMgr();
 	pmdEDUEvent event;
@@ -177,7 +176,7 @@ int pmdEDUEntryPoint(EDU_TYPES type, pmdEDUCB *cb, void *arg)
 
 		if (!isForced && PMD_EDU_EVENT_RESUME == event._eventType) {
 			// set EDU status to wait
-//			eduMgr->waitEDU(myEDUID);
+			eduMgr->waitEDU(myEDUID);
 			// run the main function
 			pmdEntryPoint entryFunc = getEntryFuncByType(type);
 			if (!entryFunc) {
@@ -200,7 +199,7 @@ int pmdEDUEntryPoint(EDU_TYPES type, pmdEDUCB *cb, void *arg)
 							myEDUID, getEDUName(type), rc);	
 				}
 			}
-//			eduMgr->waitEDU(myEDUID);
+			eduMgr->waitEDU(myEDUID);
 		} else if (!isForced && PMD_EDU_EVENT_TERM != event._eventType) {
 			PD_LOG(PDERROR, "Receive the wrong event %d in EDU %lld, type %s",
 					event._eventType, myEDUID, getEDUName(type));	
@@ -214,7 +213,7 @@ int pmdEDUEntryPoint(EDU_TYPES type, pmdEDUCB *cb, void *arg)
 			event.reset();	
 		}
 
-		//rc = eduMgr->returnEDU(myEDUID, isForced, &eduDestroyed);
+		rc = eduMgr->returnEDU(myEDUID, isForced, &eduDestroyed);
 		if (rc) {
 			PD_LOG(PDERROR, "Invalid EDU status for EDU: %lld, type %s",
 					myEDUID, getEDUName(type));	

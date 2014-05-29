@@ -608,7 +608,10 @@ emeralddb-pmdTcpListener.o emeralddb-pmdTcpListener.o:  \
   ../boost/boost/smart_ptr/scoped_array.hpp ../boost/boost/next_prior.hpp \
   ../boost/boost/thread/future_error_code.hpp \
   ../boost/boost/detail/atomic_undef_macros.hpp \
-  ../boost/boost/detail/atomic_redef_macros.hpp include/ossSocket.hpp
+  ../boost/boost/detail/atomic_redef_macros.hpp include/ossSocket.hpp \
+  include/ossSocket.hpp include/pmd.hpp include/pmdEDUMgr.hpp \
+  include/pmdEDU.hpp include/ossLatch.hpp include/ossUtil.hpp \
+  include/pmdEDUMgr.hpp include/pd.hpp
 
 include/core.hpp:
 
@@ -2043,3 +2046,19 @@ include/ossQueue.hpp:
 ../boost/boost/detail/atomic_redef_macros.hpp:
 
 include/ossSocket.hpp:
+
+include/ossSocket.hpp:
+
+include/pmd.hpp:
+
+include/pmdEDUMgr.hpp:
+
+include/pmdEDU.hpp:
+
+include/ossLatch.hpp:
+
+include/ossUtil.hpp:
+
+include/pmdEDUMgr.hpp:
+
+include/pd.hpp:

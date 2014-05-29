@@ -785,7 +785,7 @@ edb-command.o edb-command.o: client/command.cpp include/core.hpp \
   ../boost/boost/date_time/microsec_time_clock.hpp \
   ../boost/boost/config/abi_prefix.hpp \
   ../boost/boost/config/abi_suffix.hpp include/ossSocket.hpp \
-  include/core.hpp client/commandFactory.hpp
+  include/core.hpp client/commandFactory.hpp include/pd.hpp
 
 include/core.hpp:
 
@@ -2664,3 +2664,5 @@ include/ossSocket.hpp:
 include/core.hpp:
 
 client/commandFactory.hpp:
+
+include/pd.hpp:

@@ -15,13 +15,11 @@
 *******************************************************************************/
 #ifndef _EDB_HPP_
 #define _EDB_HPP_
-#include <string>
-#include <vector>
+
+#include "core.hpp"
 #include "ossSocket.hpp"
 #include "commandFactory.hpp"
-
 const int   CMD_BUFFER_SIZE      =  512;
-
 class Edb {
 public:
    Edb(){}
@@ -29,7 +27,7 @@ public:
 public:
    void     start(void);
 protected:
-   void    prompt(void);
+   void     prompt(void);
 private:
    void     split(const std::string &text, char delim, std::vector<std::string> &result);
    char*    readLine(char *p, int length);
@@ -40,5 +38,5 @@ private:
    char           _cmdBuffer[CMD_BUFFER_SIZE];
 };
 
-#endif
 
+#endif
